@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CoinController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/coins',);
 Route::resource('coins', CoinController::class);
+Route::resource('categories',CategoryController::class);
+Route::resource('products',ProductController::class);
 Route::put('/coins/{coin}/toggle', [CoinController::class, 'toggleActivation']);
+Route::view('/main', 'main')->name('main');
+
