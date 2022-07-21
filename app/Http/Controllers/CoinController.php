@@ -128,23 +128,23 @@ class CoinController extends Controller
     }
 
 
-    //Function to toggle in the active Button
-    public function toggleActivation(Coin $coin) {
+    // //Function to toggle in the active Button
+    // public function toggleActivation(Coin $coin) {
 
-            $status = -1;
-            if($coin->is_active) {
-                $coin->is_active = false;
-                $message = 'Coin Deactivated Successfully';
-                $status = 2;
-            } else {
-                $coin->is_active = true;
-                $message = 'Coin Activated Successfully';
-                $status = 1;
-            }
-            $isSaved = $coin->save();
-            return response()->json([
-                'message' => $isSaved ? $message : 'Failed to toggle the coin, Please try again',
-                'status' => $status,
-            ], $isSaved ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
-    }
+    //         $status = -1;
+    //         if($coin->is_active) {
+    //             $coin->is_active = false;
+    //             $message = 'Coin Deactivated Successfully';
+    //             $status = 2;
+    //         } else {
+    //             $coin->is_active = true;
+    //             $message = 'Coin Activated Successfully';
+    //             $status = 1;
+    //         }
+    //         $isSaved = $coin->save();
+    //         return response()->json([
+    //             'message' => $isSaved ? $message : 'Failed to toggle the coin, Please try again',
+    //             'status' => $status,
+    //         ], $isSaved ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+    // }
 }

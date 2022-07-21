@@ -21,6 +21,5 @@ Route::redirect('/', '/coins',);
 Route::resource('coins', CoinController::class);
 Route::resource('categories',CategoryController::class);
 Route::resource('products',ProductController::class);
-Route::put('/coins/{coin}/toggle', [CoinController::class, 'toggleActivation']);
 Route::view('/main', 'main')->name('main');
 

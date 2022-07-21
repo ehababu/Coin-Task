@@ -109,24 +109,5 @@ class CategoryController extends Controller
         ], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
     }
 
-
-        //Function to toggle in the active Button
-        public function toggleActivation(Category $category) {
-
-            $status = -1;
-            if($category->is_active) {
-                $category->is_active = false;
-                $message = 'Coin Deactivated Successfully';
-                $status = 2;
-            } else {
-                $category->is_active = true;
-                $message = 'Coin Activated Successfully';
-                $status = 1;
-            }
-            $isSaved = $category->save();
-            return response()->json([
-                'message' => $isSaved ? $message : 'Failed to toggle the category, Please try again',
-                'status' => $status,
-            ], $isSaved ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
-    }
+      
 }

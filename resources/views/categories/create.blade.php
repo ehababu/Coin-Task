@@ -1,7 +1,7 @@
 @extends('main')
 
 
-@section('title','Create Categories')
+@section('title','Create Category')
 @section('style')
     
 @endsection
@@ -19,7 +19,7 @@
             <label class="form-check-label" for="active">Active Status</label>
         </div>
         <button type="submit" id="button-create" class="btn btn-primary col-md-3">Create</button>
-        <a href="{{route('categories.index')}}" class="btn btn-danger col-md-3">Cancel</a
+        <a href="{{route('categories.index')}}" class="btn btn-danger col-md-3">Cancel</a>
     
         </form>
 

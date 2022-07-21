@@ -26,12 +26,14 @@ class StoreProductRequset extends FormRequest
         return [
             //
             'name' => 'required|string|min:3|max:60',
-            'barcode' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'category_name' => 'required|string|min:3|max:60',
-            'description' => 'required|string|min:3|max:150',
+            'barcode' => 'required|string',
+            'category' => 'required|integer|exists:categories,id',
+            'description' => 'required|string|min:3|max:2048',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'keywords' => 'required|string|min:1|max:15',
-            'active' => 'required|boolean'
+            'keywords' => 'required|string|min:1|max:60',
+            'price' => 'required|string',
+            'coin' => 'required|integer|exists:coins,id',
+            'active' => 'required|integer|in:1,0'
         ];
     }
 }

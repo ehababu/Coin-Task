@@ -32,7 +32,7 @@
                     <td>{{ $coin->virtual_status }}</td>
                     <td>
                         <button class="btn @if ($coin->is_active) btn-success @else btn-danger @endif"
-                            onclick="   ({{ $coin->id }})" id="toggle_{{ $coin->id }}">
+                            onclick="   ({{ $coin->id }})" id="{{ $coin->id }}">
                             {{ $coin->active_status }}
                         </button>
                     </td>
@@ -52,28 +52,7 @@
 
 @section('script')
     <script>
-        function toggleCoin(id) {
-            let btn = document.getElementById(`toggle_${id}`);
-            btn.disabled = true;
-            axios
-                .put(`/coins/${id}/toggle`)
-                .then(function(response) {
-                    toastr.success(response.data.message);
-                    if (response.data.status == 1) {
-                        btn.setAttribute('class', 'btn btn-success');
-                        btn.innerHTML = 'Active';
-                    } else {
-                        btn.setAttribute('class', 'btn btn-danger');
-                        btn.innerHTML = 'Inactive';
-                    }
-                    btn.disabled = false;
-                })
-                .catch(function(error) {
-                    btn.disabled = false;
-                    toastr.error(error.response.data.message);
-                });
-        }
-
+       
         function deleteCoin(id, reference) {
             confirmDelete('/coins', id, reference);
         }
